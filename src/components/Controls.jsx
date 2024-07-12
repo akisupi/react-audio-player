@@ -82,7 +82,7 @@ const Controls = ({
   }, [volume, audioRef, muteVolume]);
 
   return (
-    <div className="p-3">
+    <div className="p-3 md:flex justify-between">
       <div className="flex justify-center  *:px-5 *:text-2xl *:firt:ps-0 *:last:pe-0">
         <button onClick={handlePrevious}>
           <IoPlaySkipBackSharp />
@@ -109,9 +109,9 @@ const Controls = ({
           <IoPlaySkipForwardSharp />
         </button>
       </div>
-      <div className="hidden">
-        <div>
-          <button onClick={() => setMuteVolume((muteVolume) => !muteVolume)}>
+      <div className="hidden md:block">
+        <div className="flex justify-between">
+          <button onClick={() => setMuteVolume((muteVolume) => !muteVolume)} className="px-1">
             {muteVolume || volume < 5 ? (
               <IoMdVolumeOff />
             ) : volume < 40 ? (
@@ -129,6 +129,7 @@ const Controls = ({
             style={{
               background: `linear-gradient(to right, #ee966a ${volume}%, #ccc ${volume}%)`,
             }}
+            className="pe-1 mt-2"
           />
         </div>
       </div>

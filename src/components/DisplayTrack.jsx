@@ -8,6 +8,7 @@ const DisplayTrack = ({
   progressBarRef,
   setDuration,
   handleNext,
+  favorite,
   toggleFavorite,
 }) => {
   const onLoadedMetadata = () => {
@@ -49,7 +50,7 @@ const DisplayTrack = ({
           </div>
           <span>
             <button onClick={toggleFavorite}>
-              {currentTrack.favorite ? (
+              {favorite ? (
                 <MdOutlineFavorite className="text-2xl text-orange-600" />
               ) : (
                 <MdOutlineFavoriteBorder className="text-2xl text-slate-200" />

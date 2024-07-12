@@ -10,7 +10,7 @@ const AudioPlayer = () => {
   const [currentTrack, setCurrentTrack] = useState(tracks[trackIndex]);
   const [duration, setDuration] = useState(0);
   const [timeProgress, setTimeProgress] = useState(0);
-  // const [favorite, setFavorite] = useState(currentTrack.favorite);
+  const [favorite, setFavorite] = useState(false);
 
   const audioRef = useRef();
   const progressBarRef = useRef();
@@ -25,6 +25,9 @@ const AudioPlayer = () => {
     }
   };
 
+  const toggleFavorite = () => {
+    setFavorite((favorite) => !favorite);
+  };
 
   return (
     <div>
@@ -36,7 +39,8 @@ const AudioPlayer = () => {
           progressBarRef,
           setDuration,
           handleNext,
-
+          favorite,
+          toggleFavorite,
         }}
       />
       <ProgressBar {...{ progressBarRef, audioRef, duration, timeProgress }} />
