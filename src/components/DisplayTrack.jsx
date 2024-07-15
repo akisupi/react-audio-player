@@ -26,7 +26,7 @@ const DisplayTrack = ({
         onEnded={handleNext}
       />
       <div className="block h-full">
-        <div className="flex justify-center h-[85%] w-full">
+        <div className="flex justify-center h-[80%] w-full">
           {currentTrack.thumbnail ? (
             <img
               src={currentTrack.thumbnail}
@@ -41,9 +41,9 @@ const DisplayTrack = ({
             </div>
           )}
         </div>
-        <div className="flex justify-between h-[15%]">
+        <div className="flex justify-between h-[20%]">
           <div className="my-auto">
-            <strong className="text-2xl text-slate-200 md:text-4xl">
+            <strong className="text-xl text-slate-200 md:text-4xl">
               {currentTrack.title}
             </strong>
             <p className="text-sm text-slate-400 md:text-2xl">{currentTrack.authour}</p>
