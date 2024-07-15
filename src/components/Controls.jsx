@@ -83,7 +83,7 @@ const Controls = ({
 
   return (
     <div className="w-full my-auto md:flex md:justify-between">
-      <div className="flex justify-between w-full *:mx-auto *:my-auto  *:text-2xl *:firt:ms-0 *:last:me-0 md:w-[60%] md:*:text-4xl">
+      <div className="flex justify-between w-full *:mx-auto *:my-auto  *:text-2xl *:firt:ms-0 *:last:me-0 md:w-[60%] md:*:text-4xl landscape:*:text-xl">
         <button onClick={handlePrevious}>
           <IoPlaySkipBackSharp />
         </button>
@@ -93,12 +93,12 @@ const Controls = ({
         <div className="flex my-auto mx-auto">
           <button
             onClick={togglePlayPause}
-            className="bg-[#ee966a] rounded-full flex mx-auto my-auto h-14 w-14 md:h-[70px] md:w-[70px]"
+            className="bg-[#ee966a] rounded-full flex mx-auto my-auto h-14 w-14 md:h-[70px] md:w-[70px] landscape:w-[40px] landscape:h-[40px]"
           >
             {isPlaying ? (
-              <IoPauseSharp className="m-auto text-2xl md:text-4xl" />
+              <IoPauseSharp className="m-auto text-2xl md:text-4xl landscape:-text-xl" />
             ) : (
-              <IoPlaySharp className="m-auto text-2xl md:text-4xl" />
+              <IoPlaySharp className="m-auto text-2xl md:text-4xl landscape:text-xl" />
             )}
           </button>
         </div>
@@ -116,11 +116,11 @@ const Controls = ({
             className=""
           >
             {muteVolume || volume < 5 ? (
-              <IoMdVolumeOff className="text-3xl" />
+              <IoMdVolumeOff className="text-3xl landscape:text-xl" />
             ) : volume < 40 ? (
-              <IoMdVolumeLow className="text-3xl" />
+              <IoMdVolumeLow className="text-3xl landscape:text-xl" />
             ) : (
-              <IoMdVolumeHigh className="text-3xl" />
+              <IoMdVolumeHigh className="text-3xl landscape:text-xl" />
             )}
           </button>
           <input

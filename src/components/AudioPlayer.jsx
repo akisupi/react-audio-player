@@ -54,46 +54,50 @@ const AudioPlayer = () => {
   };
 
   return (
-    <div className="w-screen h-dvh px-4 py-2 md:px-20">
-      <div className="h-[70%]">
-        <DisplayTrack
-          {...{
-            currentTrack,
-            setCurrentTrack,
-            audioRef,
-            progressBarRef,
-            setDuration,
-            handleNext,
-            // favorite,
-            toggleFavorite,
-          }}
-        />
+    <div className="w-screen h-dvh px-4 py-2 md:px-20 landscape:flex landscape:justify-between">
+      <div className="h-[68%] landscape:w-[45%] landscape:h-full landscape:mx-auto">
+        <div className="h-full landscape:my-auto">
+          <DisplayTrack
+            {...{
+              currentTrack,
+              setCurrentTrack,
+              audioRef,
+              progressBarRef,
+              setDuration,
+              handleNext,
+              // favorite,
+              toggleFavorite,
+            }}
+          />
+        </div>
       </div>
 
-      <div className="h-[5%] flex">
-        <ProgressBar
-          {...{ progressBarRef, audioRef, duration, timeProgress }}
-        />
-      </div>
+      <div className="h-[32%] landscape:w-[45%] landscape:h-[80%] landscape:mx-auto landscape:my-auto">
+        <div className="h-[20%] flex landscape:my-auto">
+          <ProgressBar
+            {...{ progressBarRef, audioRef, duration, timeProgress }}
+          />
+        </div>
 
-      <div className="h-[20%] flex">
-        <Controls
-          {...{
-            audioRef,
-            progressBarRef,
-            duration,
-            setTimeProgress,
-            initialTracks,
-            trackIndex,
-            setTrackIndex,
-            setCurrentTrack,
-            handleNext,
-          }}
-        />
-      </div>
+        <div className="h-[64%] flex">
+          <Controls
+            {...{
+              audioRef,
+              progressBarRef,
+              duration,
+              setTimeProgress,
+              initialTracks,
+              trackIndex,
+              setTrackIndex,
+              setCurrentTrack,
+              handleNext,
+            }}
+          />
+        </div>
 
-      <div className="h-[5%] flex">
-        <Footer />
+        <div className="h-[16%] flex">
+          <Footer />
+        </div>
       </div>
     </div>
   );

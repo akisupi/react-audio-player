@@ -26,12 +26,12 @@ const DisplayTrack = ({
         onEnded={handleNext}
       />
       <div className="block h-full">
-        <div className="flex justify-center h-[80%] w-full">
+        <div className="flex justify-center h-[82%] w-full">
           {currentTrack.thumbnail ? (
             <img
               src={currentTrack.thumbnail}
               alt="audio avatar"
-              className="rounded-xl h-full w-full md:w-[70%]"
+              className="rounded-xl h-full w-full md:w-[70%] landscape:w-[90%]"
             />
           ) : (
             <div className="flex my-auto ">
@@ -41,19 +41,19 @@ const DisplayTrack = ({
             </div>
           )}
         </div>
-        <div className="flex justify-between h-[20%]">
+        <div className="flex justify-between h-[18%]">
           <div className="my-auto">
-            <strong className="text-xl text-slate-200 md:text-4xl">
+            <strong className="text-xl text-slate-200 md:text-4xl landscape:text-xl">
               {currentTrack.title}
             </strong>
-            <p className="text-sm text-slate-400 md:text-2xl">{currentTrack.authour}</p>
+            <p className="text-sm text-slate-400 md:text-2xl landscape:text-sm">{currentTrack.authour}</p>
           </div>
           <span className="my-auto">
             <button onClick={toggleFavorite}>
               {currentTrack.favorite ? (
-                <MdOutlineFavorite className="text-3xl text-orange-600 md:text-5xl" />
+                <MdOutlineFavorite className="text-3xl text-orange-600 md:text-5xl landscape:text-xl" />
               ) : (
-                <MdOutlineFavoriteBorder className="text-2xl text-slate-200 md:text-4xl" />
+                <MdOutlineFavoriteBorder className="text-2xl text-slate-200 md:text-4xl landscape:text-xl" />
               )}
             </button>
           </span>

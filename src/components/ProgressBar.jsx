@@ -20,7 +20,7 @@ const ProgressBar = ({ progressBarRef, audioRef, duration, timeProgress }) => {
 
   return (
     <div className="flex justify-between w-full my-auto">
-      <span className="text-[12px] md:text-2xl">{formatTime(timeProgress)}</span>
+      <span className="text-[12px] md:text-2xl landscape:text-sm">{formatTime(timeProgress)}</span>
       <input
         type="range"
         ref={progressBarRef}
@@ -28,7 +28,7 @@ const ProgressBar = ({ progressBarRef, audioRef, duration, timeProgress }) => {
         onChange={handleProgressChange}
         className="my-auto mx-3"
       />
-      <span className="text-[12px] md:text-2xl">{formatTime(duration)}</span>
+      <span className="text-[12px] md:text-2xl landscape:text-sm">{formatTime(duration)}</span>
     </div>
   );
 };
