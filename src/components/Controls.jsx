@@ -16,7 +16,7 @@ const Controls = ({
   progressBarRef,
   duration,
   setTimeProgress,
-  tracks,
+  initialTracks,
   trackIndex,
   setTrackIndex,
   setCurrentTrack,
@@ -65,12 +65,12 @@ const Controls = ({
 
   const handlePrevious = () => {
     if (trackIndex == 0) {
-      let lastTrackIndex = tracks.length - 1;
+      let lastTrackIndex = initialTracks.length - 1;
       setTrackIndex(lastTrackIndex);
-      setCurrentTrack(tracks[lastTrackIndex]);
+      setCurrentTrack(initialTracks[lastTrackIndex]);
     } else {
       setTrackIndex((trackIndex) => trackIndex - 1);
-      setCurrentTrack(tracks[trackIndex - 1]);
+      setCurrentTrack(initialTracks[trackIndex - 1]);
     }
   };
 
@@ -82,23 +82,23 @@ const Controls = ({
   }, [volume, audioRef, muteVolume]);
 
   return (
-    <div className="p-3 md:flex justify-between">
-      <div className="flex justify-center  *:px-5 *:text-2xl *:firt:ps-0 *:last:pe-0">
+    <div className="w-full my-auto md:flex md:justify-between">
+      <div className="flex justify-between w-full *:mx-auto *:my-auto  *:text-2xl *:firt:ms-0 *:last:me-0 md:w-[60%] md:*:text-4xl">
         <button onClick={handlePrevious}>
           <IoPlaySkipBackSharp />
         </button>
         <button onClick={skipBackward}>
           <IoPlayBackSharp />
         </button>
-        <div>
+        <div className="flex my-auto mx-auto">
           <button
             onClick={togglePlayPause}
-            className="bg-[#ee966a] p-3 rounded-full shadow-[#ee966a]"
+            className="bg-[#ee966a] rounded-full flex mx-auto my-auto h-14 w-14 md:h-[70px] md:w-[70px]"
           >
             {isPlaying ? (
-              <IoPauseSharp />
+              <IoPauseSharp className="m-auto text-2xl md:text-4xl" />
             ) : (
-              <IoPlaySharp className="text-center" />
+              <IoPlaySharp className="m-auto text-2xl md:text-4xl" />
             )}
           </button>
         </div>
@@ -109,15 +109,18 @@ const Controls = ({
           <IoPlaySkipForwardSharp />
         </button>
       </div>
-      <div className="hidden md:block">
-        <div className="flex justify-between">
-          <button onClick={() => setMuteVolume((muteVolume) => !muteVolume)} className="px-1">
+      <div className="hidden md:block md:w-[30%] md:my-auto">
+        <div className="flex justify-between *:my-auto *:first:me-2">
+          <button
+            onClick={() => setMuteVolume((muteVolume) => !muteVolume)}
+            className=""
+          >
             {muteVolume || volume < 5 ? (
-              <IoMdVolumeOff />
+              <IoMdVolumeOff className="text-3xl" />
             ) : volume < 40 ? (
-              <IoMdVolumeLow />
+              <IoMdVolumeLow className="text-3xl" />
             ) : (
-              <IoMdVolumeHigh />
+              <IoMdVolumeHigh className="text-3xl" />
             )}
           </button>
           <input
@@ -129,7 +132,7 @@ const Controls = ({
             style={{
               background: `linear-gradient(to right, #ee966a ${volume}%, #ccc ${volume}%)`,
             }}
-            className="pe-1 mt-2"
+            className=""
           />
         </div>
       </div>
